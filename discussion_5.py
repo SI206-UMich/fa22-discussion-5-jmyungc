@@ -65,21 +65,42 @@ class TestAllMethods(unittest.TestCase):
 	def test_count_a(self):
 		pass
 
+	# have all the words start and end with a
+	# have all the words start with a
+	# have all words end with a
+	# have all a sentence
+	# have no As
+	# empty string
+
 
 	## Check to see whether you can add an item to the warehouse
 	def test_add_item(self):
 		pass
 
+	# add the same item three times
+	# add items with almost the same name
 
 	## Check to see whether warehouse correctly returns the item with the most stock
 	def test_warehouse_max_stocks(self):
 		pass
 
+	# all items have same stock
+	# max at beginning
+	# max at end
+	# all zero stock
+	# triple digit stocks?
+	# no items
 
 	# Check to see whether the warehouse correctly return the item with the highest price
 	def test_warehouse_max_price(self):
 		pass
 		
+	# all same price
+	# max price at beginning and end
+	# max price at beginning
+	# max price at end
+	# all zero?
+	# no items
 
 def main():
 	unittest.main()
