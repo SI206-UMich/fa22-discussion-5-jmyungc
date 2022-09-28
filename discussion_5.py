@@ -56,6 +56,7 @@ class Warehouse:
 		max_price_item = None
 		for item in self.items:
 			if item.price > max_price:
+				max_price = item.price
 				max_price_item = item
 		return max_price_item
 
@@ -135,22 +136,30 @@ class TestAllMethods(unittest.TestCase):
 		max_stocked_item = fun_warehouse.get_max_stock()
 		self.assertEqual(max_stocked_item, self.same1)
 
-	# max at beginning
 	# max at end
+		
+		self.obvious_max = Item("Zebra Cakes", 2, 200)
+		fun_warehouse.add_item(self.obvious_max)
+		self.assertEqual(fun_warehouse.get_max_stock(), self.obvious_max)
+
 	# all zero stock
-	# triple digit stocks?
-	# no items
+		self.item_none1 = Item("Peanut Butter - Crunchy", 4, 0)
+		self.item_none2 = Item("Peanut Butter - Smooth", 4.50, 0)
+		funner_warehouse = Warehouse([self.item_none1, self.item_none2])
+		self.assertEqual(funner_warehouse.get_max_stock(), None)
 
 	# Check to see whether the warehouse correctly return the item with the highest price
 	def test_warehouse_max_price(self):
-		pass
-		
-	# all same price
-	# max price at beginning and end
-	# max price at beginning
-	# max price at end
-	# all zero?
-	# no items
+		self.max_item = Item("24k Gold Bracelet", 3000, 4)
+		self.not_max_item = Item("Trash Bags", 8, 40)
+		self.meh_item = Item("Kenny Chesney CD", 12, 200)
+
+		weird_department_store = Warehouse([self.max_item, self.not_max_item, self.meh_item])
+		self.assertEqual(weird_department_store.get_max_price(), self.max_item)
+
+		self.free_item = Item("Reba McEntire's Country Album", 0, 15)
+		free_stuff_store = Warehouse([self.free_item])
+		self.assertEqual(free_stuff_store.get_max_price(), None)
 
 def main():
 	unittest.main()
