@@ -74,14 +74,30 @@ class TestAllMethods(unittest.TestCase):
 
 	## Check to see whether count_a works
 	def test_count_a(self):
-		pass
 
 	# have all the words start and end with a
+		all_word_start_end_a = count_a("applesaucea amazinga agreea")
+		self.assertEqual(all_word_start_end_a, 8)
+
 	# have all the words start with a
+		all_word_start_a = count_a("apt apartment ain't it")
+		self.assertEqual(all_word_start_a, 4)
+
 	# have all words end with a
+		all_word_end_a = count_a("coupa copa")
+		self.assertEqual(all_word_end_a, 2)
+
 	# have all a sentence
+		all_a_sentence = count_a("aaaa")
+		self.assertEqual(all_a_sentence, 4)
+
 	# have no As
+		no_a_string = count_a("no wonder why")
+		self.assertEqual(no_a_string, 0)
+
 	# empty string
+		no_letters = count_a("")
+		self.assertEqual(no_letters, 0)
 
 
 	## Check to see whether you can add an item to the warehouse
