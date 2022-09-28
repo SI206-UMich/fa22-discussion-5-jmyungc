@@ -102,16 +102,39 @@ class TestAllMethods(unittest.TestCase):
 
 	## Check to see whether you can add an item to the warehouse
 	def test_add_item(self):
-		pass
+		new_warehouse = Warehouse([self.item1, self.item2])
+		new_warehouse.add_item(self.item3)
+		new_warehouse.add_item(self.item4)
+		self.assertEqual(new_warehouse.items, [self.item1, self.item2, self.item3, self.item4])
 
-	# add the same item three times
 	# add items with almost the same name
+		self.item6 = Item("Ritz Crackers", 8, 22)
+		self.item7 = Item("Ritz Bitz", 9, 22)
+
+		new_warehouse.add_item(self.item6)
+
+		self.assertEqual(new_warehouse.items, [self.item1, self.item2, self.item3, self.item4, self.item6])
+
+		new_warehouse.add_item(self.item7)
+
+		self.assertEqual(new_warehouse.items, [self.item1, self.item2, self.item3, self.item4, self.item6, self.item7])
 
 	## Check to see whether warehouse correctly returns the item with the most stock
 	def test_warehouse_max_stocks(self):
-		pass
+		new_warehouse = Warehouse([self.item1, self.item2, self.item3, self.item4, self.item5])
+		max_stock_product = new_warehouse.get_max_stock()
+		self.assertEqual(max_stock_product, self.item3)
 
 	# all items have same stock
+		self.same1 = Item("Mac n Cheese", 2, 12)
+		self.same2 = Item("Kool-Aid", 5, 12)
+		self.same3 = Item("Folklore CD", 15, 12)
+
+		fun_warehouse = Warehouse([self.same1, self.same2, self.same3])
+
+		max_stocked_item = fun_warehouse.get_max_stock()
+		self.assertEqual(max_stocked_item, self.same1)
+
 	# max at beginning
 	# max at end
 	# all zero stock
